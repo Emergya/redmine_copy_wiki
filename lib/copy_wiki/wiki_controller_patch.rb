@@ -23,7 +23,7 @@ module CopyWiki
       def copy
         return render_403 unless editable?
         #@projects = Project.all.map{|p| [p.id, p.name] if p.wiki.present? and p.id != @project.id}
-        @projects = Project.all.select{|p| p.id != @project.id and p.wiki.present? and p.wiki.pages.length > 0}
+        @projects = Project.all.order("name ASC").select{|p| p.id != @project.id and p.wiki.present? and p.wiki.pages.length > 0}
       end
     end
   end
