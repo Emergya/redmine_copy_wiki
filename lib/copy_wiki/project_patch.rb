@@ -1,7 +1,6 @@
 require 'dispatcher' unless Rails::VERSION::MAJOR >= 3
 
 module CopyWiki
-  unloadable
   module ProjectPatch
     def self.included(base) # :nodoc:
       base.extend(ClassMethods)
@@ -9,7 +8,6 @@ module CopyWiki
 
       # Same as typing in the class
       base.class_eval do
-        unloadable # Send unloadable so it will be reloaded in development
       end
     end
 

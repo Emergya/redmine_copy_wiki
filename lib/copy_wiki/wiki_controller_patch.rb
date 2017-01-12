@@ -9,7 +9,6 @@ module CopyWiki
 
       # Same as typing in the class
       base.class_eval do
-        unloadable # Send unloadable so it will be reloaded in development
         #skip_filter :authorize, :only => [:copy]
         before_filter :find_existing_page, :only => [:rename, :protect, :history, :diff, :annotate, :add_attachment, :destroy, :destroy_version, :copy]
       end
